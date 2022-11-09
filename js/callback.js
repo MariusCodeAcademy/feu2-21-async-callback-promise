@@ -22,3 +22,15 @@ function getPost3() {
 getPost1(getPost2);
 // getPost2();
 // getPost3();
+
+// kada call back gali buti naudojamas
+function makeNum(cb) {
+  const rez = cb(5);
+  return rez;
+}
+
+function double(num) {
+  return num * 2;
+}
+const n1 = makeNum(double);
+// double(n1);
