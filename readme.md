@@ -7,6 +7,6 @@
 5. is tu desimties sugeneruoti korteles htmle.
 6. parsiusti postus is https://dummyjson.com/posts 
 7. sugeneruoti juos koteliu pavidale htmle.
-8. parasyti funkcija kuria iskietus su fetch parsiunciami ir iskonsolinami produktai is https://dummyjson.com/products 
+8. parasyti funkcija kuria iskvietus su fetch parsiunciami ir iskonsolinami produktai is https://dummyjson.com/products 
 9. parasyti funkcija kuri gauna masyva prekiu is 8uzd. ir juos avaizduoja html sarase.
 10. panaudoti 8uzd ir 9uzd funkcijas ir atvaizduoti prekes. 

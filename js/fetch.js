@@ -35,13 +35,7 @@ fetch(url)
   .then((dataInJsFormat) => {
     // gavau duomenis
     console.log('dataInJsFormat ===', dataInJsFormat);
-
-    // iskelti saraso generavimo logika i atskira funkcija generateUsersList()
-    dataInJsFormat.forEach((uObj) => {
-      // uObj === {id: 1, name: 'Leanne Graham', username: 'Bret', email: 'Sincere@april.biz', address: {…}, …}
-      const oneEl = makeOneLi(uObj.name, uObj.phone);
-      usersListEl.append(oneEl);
-    });
+    generateUsersList(dataInJsFormat);
   })
   .catch((err) => console.warn('klaida gaunant users', err));
 
@@ -51,4 +45,13 @@ function makeOneLi(name, tel) {
   const liEl = document.createElement('li');
   liEl.textContent = `Name: ${name}, tel: ${tel}`;
   return liEl;
+}
+
+function generateUsersList(arr) {
+  // iskelti saraso generavimo logika i atskira funkcija generateUsersList()
+  arr.forEach((uObj) => {
+    // uObj === {id: 1, name: 'Leanne Graham', username: 'Bret', email: 'Sincere@april.biz', address: {…}, …}
+    const oneEl = makeOneLi(uObj.name, uObj.phone);
+    usersListEl.append(oneEl);
+  });
 }
