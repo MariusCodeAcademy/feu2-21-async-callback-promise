@@ -4,6 +4,7 @@ console.log('asyncAwait.js');
 function getPost1() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
+      reject();
       console.log('post1');
       resolve(10);
     }, 3000);
@@ -30,9 +31,28 @@ function getPost3() {
 // async ir await - galim naudoti funkcijose, ir turim butinai naudoti su try catch bloku
 
 async function app() {
-  // await - palaukt kol ivyks promise.resolve ir tik tada vygdyti tolimesne eilute.
-  await getPost1();
-  await getPost2();
-  await getPost3();
+  try {
+    // await - palaukt kol ivyks promise.resolve ir tik tada vygdyti tolimesne eilute.
+    const p1Rez = await getPost1();
+    const p2Rez = await getPost2();
+    const p3Rez = await getPost3();
+    console.log('p1Rez ===', p1Rez);
+    console.log('p1Rez ===', p2Rez);
+    console.log('p1Rez ===', p3Rez);
+    const avg = (p1Rez + p2Rez + p3Rez) / 3;
+    console.log('avg ===', avg);
+  } catch (error) {
+    console.warn(error, 'kazkas negerai');
+  }
 }
 app();
+
+// https://www.w3schools.com/js/js_errors.asp
+// try {
+//   // testini bloka
+//   throw 'boom';
+//   console.log('po klaidos');
+// } catch (error) {
+//   // klaidu gaudymo bloka
+//   console.log(error, 'pagavau klaida');
+// }
