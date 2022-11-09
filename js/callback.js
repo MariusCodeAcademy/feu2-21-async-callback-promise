@@ -20,7 +20,7 @@ function sayHi() {
 setTimeout(sayHi, 3000);
 
 // setInterval vygdo kazkoki koda kas kazkiek ms
-setInterval(tick, 1000);
+const int1 = setInterval(tick, 1000);
 
 function tick() {
   const now = new Date();
@@ -28,3 +28,6 @@ function tick() {
   timeEl.textContent = now.toLocaleString('lt-LT', { timeStyle: 'medium' });
 }
 // tick();
+
+// sutabdyti intervala su clearInterval
+setTimeout(() => clearInterval(int1), 5000);
