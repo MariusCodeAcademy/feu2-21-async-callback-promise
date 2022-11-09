@@ -36,4 +36,6 @@ fetch(url)
   })
   .catch((err) => console.warn('klaida gaunant users', err));
 
-// is gautu duomenu atvaizduoti sarasa su vardais ir tel numeriais
+// 1. is gautu duomenu atvaizduoti sarasa su vardais ir tel numeriais
+
+//
