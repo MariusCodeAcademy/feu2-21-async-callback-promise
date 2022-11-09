@@ -1,9 +1,11 @@
 'use strict';
 console.log('callback.js');
 
-function getPost1() {
+function getPost1(callBackFunc) {
   setTimeout(() => {
     console.log('post1');
+    // cia as noriu kviesti post2
+    callBackFunc();
   }, 3000);
 }
 function getPost2() {
@@ -17,6 +19,6 @@ function getPost3() {
   }, 1800);
 }
 
-getPost1();
-getPost2();
-getPost3();
+getPost1(getPost2);
+// getPost2();
+// getPost3();
