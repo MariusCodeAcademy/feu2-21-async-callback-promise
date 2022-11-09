@@ -5,4 +5,5 @@
 3. parsisiusti postus is https://jsonplaceholder.typicode.com/posts su fetch
 4. pasilikti tik pirmus 10.
 5. is tu desimties sugeneruoti korteles htmle.
-6. 
+6. parsiusti postus is https://dummyjson.com/posts 
+7. sugeneruoti juos koteliu pavidale htmle.
