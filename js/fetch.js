@@ -36,6 +36,7 @@ fetch(url)
     // gavau duomenis
     console.log('dataInJsFormat ===', dataInJsFormat);
 
+    // iskelti saraso generavimo logika i atskira funkcija generateUsersList()
     dataInJsFormat.forEach((uObj) => {
       // uObj === {id: 1, name: 'Leanne Graham', username: 'Bret', email: 'Sincere@april.biz', address: {…}, …}
       const oneEl = makeOneLi(uObj.name, uObj.phone);
