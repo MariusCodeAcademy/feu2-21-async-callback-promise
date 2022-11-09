@@ -2,6 +2,7 @@
 console.log('practice.js');
 
 const url = 'https://jsonplaceholder.typicode.com/posts';
+const url2 = 'https://dummyjson.com/posts';
 
 fetch(url)
   .then((response) => response.json())
@@ -37,3 +38,15 @@ function generateCards(arr, elId) {
   console.log('htmlElsArr ===', htmlElsArr);
   htmlElsArr.forEach((el) => dest.append(el));
 }
+
+// 6. parsiusti postus
+
+fetch(url2)
+  .then((resp) => resp.json())
+  .then((data) => {
+    // console.log('data ===', data);
+    // data === {posts: Array(30), total: 150, skip: 0, limit: 30}
+    // posts
+    console.log('data.posts ===', data.posts);
+  })
+  .catch((err) => console.warn('klaida gaunant posts2', err));
