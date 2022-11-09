@@ -29,9 +29,11 @@ console.log('fetch.js');
 const url = 'https://jsonplaceholder.typicode.com/users';
 
 fetch(url)
-  .then((response) => response.json())
+  .then((response) => response.json()) // .json() => JSON.parse()
   .then((dataInJsFormat) => {
     // gavau duomenis
     console.log('dataInJsFormat ===', dataInJsFormat);
   })
   .catch((err) => console.warn('klaida gaunant users', err));
+
+// is gautu duomenu atvaizduoti sarasa su vardais ir tel numeriais
