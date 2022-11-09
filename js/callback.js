@@ -6,7 +6,7 @@ function getPost1() {
     setTimeout(() => {
       console.log('post1');
       // cia as noriu kviesti post2
-      resolve();
+      resolve(10);
     }, 3000);
   });
 }
@@ -15,16 +15,19 @@ function getPost2() {
     setTimeout(() => {
       console.log('post2');
 
-      resolve();
+      resolve(20);
     }, 2000);
   });
 }
 
 function getPost3() {
-  // throw new Error('klaida rasant'); // bus pagauta catch
-  setTimeout(() => {
-    console.log('post3');
-  }, 1800);
+  return new Promise((resolve, reject) => {
+    // throw new Error('klaida rasant'); // bus pagauta catch
+    setTimeout(() => {
+      console.log('post3');
+      resolve(15);
+    }, 1800);
+  });
 }
 
 // callback way
@@ -33,7 +36,18 @@ function getPost3() {
 // getPost3();
 
 // promise Way
-getPost1()
-  .then(() => getPost2())
-  .then(() => getPost3())
-  .catch((err) => console.warn('klaida kazkur get post', err));
+// getPost1()
+//   .then(() => getPost2())
+//   .then(() => getPost3())
+//   .catch((err) => console.warn('klaida kazkur get post', err));
+
+// Promise.All([pr1, pr2 ...]) - budaas kazka dartyti kai grys visi promses
+
+// kiekvienas postas grazina reiksme, mums reikia paskaiciuti reiksmiu vidurki kai turesim visas reiksmes
+Promise.all([getPost1(), getPost2(), getPost3(), Promise.resolve(50)])
+  .then((values) => {
+    console.log('values ===', values);
+    const postValuesAvg = values.reduce((total, sk) => total + sk, 0) / values.length;
+    console.log('postValuesAvg ===', postValuesAvg);
+  })
+  .catch(console.warn);
