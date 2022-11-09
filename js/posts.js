@@ -20,15 +20,16 @@ function getPosts() {
 }
 
 // create post funkcija kuti ideda nauja posta i pos masyva
-function createPost(newPostObj) {
+function createPost(newPostObj, cb) {
   setTimeout(() => {
     posts.push(newPostObj);
+    cb();
   }, 2000);
 }
 
-createPost({ title: 'Post Three', body: 'This is post Three body' });
+createPost({ title: 'Post Three', body: 'This is post Three body' }, getPosts);
 
-getPosts();
+// getPosts();
 
 // 1 iskviesti getPosts tik po to kai sukurem posta su createPost su pavadinimu
 // 2 iskviesti getPosts tik po to kai sukurem posta su createPost su callback fn
