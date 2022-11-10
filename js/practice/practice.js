@@ -41,12 +41,33 @@ function generateCards(arr, elId) {
 
 // 6. parsiusti postus
 
-fetch(url2)
-  .then((resp) => resp.json())
-  .then((data) => {
-    // console.log('data ===', data);
-    // data === {posts: Array(30), total: 150, skip: 0, limit: 30}
-    // posts
-    console.log('data.posts ===', data.posts);
-  })
-  .catch((err) => console.warn('klaida gaunant posts2', err));
+// fetch(url2)
+//   .then((resp) => resp.json())
+//   .then((data) => {
+//     // console.log('data ===', data);
+//     // data === {posts: Array(30), total: 150, skip: 0, limit: 30}
+//     // posts
+//     console.log('data.posts ===', data.posts);
+//   })
+//   .catch((err) => console.warn('klaida gaunant posts2', err));
+
+//
+
+//8. parasyti funkcija kuria iskvietus su fetch
+function getProducts() {
+  return fetch('https://dummyjson.com/products')
+    .then((resp) => resp.json())
+    .then((data) => {
+      // console.log('data ===', data);
+      return data;
+    })
+    .catch((err) => console.warn('klaida gaunant getProducts', err));
+}
+
+const rez = getProducts(); // gryzta promise
+console.log('rez ===', rez); // promise
+
+// pasiimti rezultata is funkcijos kuri grazina Promise
+getProducts().then((data) => {
+  console.log('data after then ===', data);
+});
